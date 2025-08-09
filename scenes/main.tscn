@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdsg8kqbnftub"]
+
+[ext_resource type="PackedScene" uid="uid://40km2f6si86j" path="res://player/player.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bb2m61ax3rswc" path="res://enemies/base_enemy/enemy.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://dbmb04ccacv4l" path="res://environment/base_destructible/destructible.tscn" id="3_tbgi4"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_sugp2")]
+position = Vector2(401, 296)
+
+[node name="Enemy" parent="." instance=ExtResource("2_jyhfs")]
+position = Vector2(147, 457)
+
+[node name="Destructible" parent="." instance=ExtResource("3_tbgi4")]
+position = Vector2(639, 456)

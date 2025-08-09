@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://dbmb04ccacv4l"]
+
+[ext_resource type="Texture2D" uid="uid://dw12td1nisf3v" path="res://icon.svg" id="1_k0yrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cer0f"]
+size = Vector2(128, 128)
+
+[node name="Destructible" type="Area2D" groups=["destructibles"]]
+collision_mask = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.898876, 0.555796, 5.77569e-07, 1)
+texture = ExtResource("1_k0yrq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_cer0f")

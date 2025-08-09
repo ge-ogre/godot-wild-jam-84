@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccbbhoxvqj66w"]
+
+[ext_resource type="Script" uid="uid://dscmnexxbbhct" path="res://weapons/base_weapon/weapon.gd" id="1_01vxu"]
+[ext_resource type="Texture2D" uid="uid://dw12td1nisf3v" path="res://icon.svg" id="1_gpt6o"]
+[ext_resource type="PackedScene" uid="uid://criltxer3ckqv" path="res://weapons/base_weapon/bullet.tscn" id="2_kjwd0"]
+
+[node name="Weapon" type="Node2D"]
+script = ExtResource("1_01vxu")
+attack = ExtResource("2_kjwd0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_gpt6o")
+
+[node name="HurtMarker" type="Marker2D" parent="."]
