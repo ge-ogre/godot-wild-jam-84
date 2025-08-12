@@ -11,7 +11,9 @@ func _process(delta: float) -> void:
 	var direction = Vector2(1, 0).rotated(global_rotation)
 	position += direction * speed * delta
 
-
 func _on_area_entered(area:Area2D) -> void:
-	area.queue_free()
+	if area.is_in_group("destructibles"):
+		area.get_parent().get_node("HealthComponent").take_damage(10)
+	if area.is_in_group("enemies"):
+		area.get_node("HealthComponent").take_damage(10)
 	queue_free()

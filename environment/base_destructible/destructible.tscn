@@ -1,17 +1,33 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbmb04ccacv4l"]
+[gd_scene load_steps=6 format=3 uid="uid://dbmb04ccacv4l"]
 
 [ext_resource type="Texture2D" uid="uid://dw12td1nisf3v" path="res://icon.svg" id="1_k0yrq"]
+[ext_resource type="Script" uid="uid://ctmmke338u4uq" path="res://environment/base_destructible/destructible.gd" id="1_oqnbu"]
+[ext_resource type="Script" uid="uid://gr6ao4onjckk" path="res://scenes/health_component.gd" id="3_oqnbu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cer0f"]
 size = Vector2(128, 128)
 
-[node name="Destructible" type="Area2D" groups=["destructibles"]]
-collision_mask = 2
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k0yrq"]
+size = Vector2(132, 134)
+
+[node name="Destructible" type="Node2D"]
+script = ExtResource("1_oqnbu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.898876, 0.555796, 5.77569e-07, 1)
 texture = ExtResource("1_k0yrq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="." groups=["walls"]]
 visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 shape = SubResource("RectangleShape2D_cer0f")
+
+[node name="Area2D" type="Area2D" parent="." groups=["destructibles"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_k0yrq")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("3_oqnbu")
+max_health = 10
